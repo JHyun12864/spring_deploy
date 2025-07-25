@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- favicon 설정-->
+<link rel="shortcut icon" href="http://192.168.10.71/images/favicon.ico"/>
+
+<!-- 부트스트랩  CDN -->    
+<link rel="stylesheet" type="text/css"
+href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"/>
+ 
+
+<!-- jquery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+<style type="text/css">
+ 
+</style>
+
+<script type="text/javascript">
+$(function(){
+	//location.href="/";
+});
+ 	 	
+
+</script>
+</head>
+
+
+
+
+<body>
+여기는 static의 index
+Controller에서 이미 '/'에 대한 처리를 하고 있기 때문에
+지금 이 파일(static 폴더에 있는 index.html)은 무시된다. => 아니야 무시 안됨 
+
+왜냐면, 브라우저 URL에서 http://localhost:8081/index.html이라고 접근을 하더라도,
+이미 Controller에 `/` 처리가 되어 있기 때문에 handler가 가로채간다. => 아니야 안 가로채 .... 그 랜더링?! 그게 안됐던거였어
+http://localhost:8081/index.html로 접근하면
+	static의 index.html 파일이 나온다.
+</body>
+</html>

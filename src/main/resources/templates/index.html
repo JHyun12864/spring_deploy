@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- favicon 설정-->
+<link rel="shortcut icon" href="http://192.168.10.71/images/favicon.ico"/>
+
+<!-- <th:block th:include="~{fragments/external_file}"></th:block> -->
+<th:block th:replace="~{fragments/external_file :: cdn_block}"></th:block>
+
+
+<style type="text/css">
+ #msgDiv{border:1px solid #333; font-family:돋움; font-size:30px}
+</style>
+
+<script type="text/javascript">
+$(function(){
+	$("#btn").click(function(){
+		var name="강태일";
+		
+		alert(`${name}님 안녕하세요? 오늘은 목요일 입니다.`);//이건 js 변수
+		alert(`[[${name}]]님 안녕하세요? 오늘은 목요일 입니다.`); //이건 thymeleaf 변수
+	});
+});
+ 	 	
+ 	
+</script>
+</head>
+
+
+
+
+<body>
+<div th:replace="~{fragments/header :: header}"></div>
+<div th:replace="~{fragments/login_box :: login(${id},${name2})}"></div>
+
+<input type="button" id="btn" class="btn btn-success" value="클릭"/>
+
+<div id="msgDiv" th:text="${helloMsg}">처음 인사를 보여주는 부분</div>
+
+<p id="msgDiv1" th:text="${helloMsg2}">처음 인사를 보여주는 부분</p>
+<p id="msgDiv1" th:utext="${helloMsg2}">처음 인사를 보여주는 부분</p>
+
+<div th:text="${name}+과 + ${name2}">이름들을 보여주는 영역</div>
+<div th:text="|${name}과 ${name2}|">이름들을 보여주는 영역</div>
+
+<div>
+<span th:text="${name}"></span>과<span th:text="${name2 }"></span>
+</div>
+
+
+<input type="text"  th:value="${helloMsg}"/>
+
+
+<ul>
+<li><a href="obj/object_value">객체값 출력</a></li>
+<li><a href="link/link_view">링크 출력</a></li>
+<li><a href="img/img_view">이미지 출력</a></li>
+<li><a href="condition/condition_view">조건문</a></li>
+</ul>
+
+<img src="/images/default_img2.png" style="width: 100px;">
+<h2>파일 업로드</h2>
+<form th:action="@{/upload_process}" method="post" enctype="multipart/form-data">
+<table>
+<tr>
+<td>파일 선택</td>
+<td><input type="file" name="upfile"></td>
+</tr>
+
+<tr>
+<td>업로더</td>
+<td><input type="text" name="uploader"></td>
+</tr>
+
+<tr>
+<td>대상나이</td>
+<td>
+
+<input type="checkbox" name="targetAge" value="10">10대
+<input type="checkbox" name="targetAge" value="20">20대
+<input type="checkbox" name="targetAge" value="30">30대
+<input type="checkbox" name="targetAge" value="40">40대
+
+
+</td>
+</tr>
+
+<tr>
+<td colspan="2">
+<input type="submit" value="업로드" class="btn btn-success btn-sm">
+</td>
+</tr>
+
+
+</table>
+</form>
+
+
+<div th:insert="~{ fragments/footer :: footer}"></div>
+</body>
+</html>

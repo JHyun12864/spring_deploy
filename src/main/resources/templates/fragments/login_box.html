@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- favicon 설정-->
+<link rel="shortcut icon" href="http://192.168.10.71/images/favicon.ico"/>
+
+
+
+<style type="text/css">
+ 
+</style>
+
+<script type="text/javascript">
+$(function(){
+}); 	 	
+ 	
+</script>
+</head>
+
+<body>
+<div th:fragment="login(id, name)">
+
+<div>
+
+<!-- 아이디가 있을 떄  -->
+<div th:if="${ id ne null }">
+<span th:text="|${id}(${name})|">님 로그인하셨습니다.</span>
+</div>
+
+<!-- 아이디가 없을 때 -->
+<div th:if="${ id eq null }">
+<a href="#">로그인</a>
+</div>
+
+
+</div>
+
+</div>
+</body>
+</html>

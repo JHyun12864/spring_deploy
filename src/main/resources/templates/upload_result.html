@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- favicon 설정-->
+<link rel="shortcut icon" href="http://192.168.10.71/images/favicon.ico"/>
+
+<!-- <th:block th:include="~{fragments/external_file}"></th:block> -->
+<th:block th:replace="~{fragments/external_file :: cdn_block}"></th:block>
+
+
+<style type="text/css">
+#msgDiv{border:1px solid #333; font-family:돋움; font-size:30px}
+</style>
+
+<script type="text/javascript">
+$(function(){
+
+});
+
+</script>
+</head>
+
+<body>
+<div th:replace="~{fragments/header :: header}"></div>
+<div th:replace="~{fragments/login_box :: login(${id},${name2})}"></div>
+
+<div>업로드 결과 페이지</div>
+<div th:text="|파일명 : ${fileData.fileName}, 크기 : ${fileSize}|"></div>
+
+<img th:src="@{/images/{img}(img=${fileData.fileName})}" style="width:200px;"/>
+
+<div th:insert="~{ fragments/footer :: footer}"></div>
+</body>
+</html>

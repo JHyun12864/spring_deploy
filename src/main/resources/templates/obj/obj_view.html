@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- favicon 설정-->
+<link rel="shortcut icon" href="http://192.168.10.71/images/favicon.ico"/>
+
+<!-- 부트스트랩  CDN -->    
+<link rel="stylesheet" type="text/css"
+href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"/>
+ 
+
+<!-- jquery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+<style type="text/css">
+ 
+</style>
+
+<script type="text/javascript">
+$(function(){
+});
+ 	 	
+ 	
+</script>
+</head>
+
+
+<body>
+<h2>DTO 객체가 가진 값</h2>
+<table class="table table-hover">
+<tr>
+	<td>이름</td>
+	<td th:text="${data.name}">이름 출력</td>
+</tr>
+
+<tr>
+	<td>나이</td>
+	<td th:text="${data.age}">나이 출력</td>
+</tr>
+
+</table>
+
+<h2>th:object</h2>
+<table th:object="${data}" class="table table-hover">
+<tr>
+	<td>이름</td>
+	<td th:text="*{name}">이름 출력</td>
+</tr>
+
+<tr>
+	<td>나이</td>
+	<td th:text="*{age}">나이 출력</td>
+</tr>
+
+</table>
+
+</body>
+</html>
