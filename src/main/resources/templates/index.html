@@ -11,7 +11,7 @@
 
 
 <style type="text/css">
- #msgDiv{border:1px solid #333; font-family:돋움; font-size:30px}
+	#msgDiv{border:1px solid #333; font-family:돋움; font-size:30px}
 </style>
 
 <script type="text/javascript">
@@ -23,8 +23,8 @@ $(function(){
 		alert(`[[${name}]]님 안녕하세요? 오늘은 목요일 입니다.`); //이건 thymeleaf 변수
 	});
 });
- 	 	
- 	
+
+
 </script>
 </head>
 
@@ -34,7 +34,7 @@ $(function(){
 <body>
 <div th:replace="~{fragments/header :: header}"></div>
 <div th:replace="~{fragments/login_box :: login(${id},${name2})}"></div>
-
+<h2>CD 연습</h2>
 <input type="button" id="btn" class="btn btn-success" value="클릭"/>
 
 <div id="msgDiv" th:text="${helloMsg}">처음 인사를 보여주는 부분</div>
